@@ -6,7 +6,7 @@ import {
 const NavBar = () => {
     const location = useLocation();
     return (
-        <ul className="nav nav-pills justify-content-center">
+        <ul className="nav nav-pills justify-content-center my-3">
             <li className={`nav-item`}>
                 <Link to="/" className={`nav-link ${location.pathname === "/" ? " active " : ""}`}>Home</Link>
             </li>

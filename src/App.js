@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,8 +7,13 @@ import {
 import NavBar from "./components/navBar";
 import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
-
+import Modal from 'react-modal';
 export default function App() {
+
+  useEffect(() => {
+    Modal.setAppElement('#root')
+  }, [])
+
   return (
     <Router>
       <NavBar />
