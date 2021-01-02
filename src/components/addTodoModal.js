@@ -1,19 +1,18 @@
 import { useState } from 'react'
-import Datetime from 'react-datetime';
 import Modal from 'react-modal';
 import { useDispatch } from "react-redux";
+import moment from "moment"
 const AddTodoModal = ({ setShowAddModal }) => {
     const dispatch = useDispatch();
     const [description, setDescription] = useState("");
-    const [dateTime, setDateTime] = useState(null);
+    const [dateTime, setDateTime] = useState(moment(new Date()).format("YYYY-MM-DDTHH:mm"));
 
 
 
     const addTask = () => {
-        console.log(dateTime)
         const task = {
             description,
-            date: dateTime.format("YYYY-MM-DD HH:mm"),
+            date:dateTime,
             id: Math.random(),
             isCompleted: false
         }
@@ -44,14 +43,17 @@ const AddTodoModal = ({ setShowAddModal }) => {
                             placeholder="Ex: clean the room" />
                     </div>
                     <div className="mb-3">
-                        <label className="form-label">Date</label>
-                        <Datetime
+                        <label htmlFor="datetime" className="form-label">Date</label>
+                        <input
+                            id="datetime"
+                            type="datetime-local"
+                            className="form-control"
                             value={dateTime}
-                            onChange={(m) => setDateTime(m)} />
+                            onChange={(e) => setDateTime(e.target.value)} />
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    <div className="d-flex w-50 justify-content-around">
+                    <div className="d-flex w-auto justify-content-around">
                         <button onClick={addTask} disabled={!description || !dateTime} className="btn btn-primary">Add task</button>
                         <button onClick={() => setShowAddModal(false)} className="btn">Cancel</button>
                     </div>
@@ -66,7 +68,6 @@ const customStyles = {
         top: '50%',
         left: '50%',
         right: 'auto',
-        marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         overflow: "hidden",
         minHeight: "57%"

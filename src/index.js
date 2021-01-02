@@ -6,15 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { store, persistor } from './store/index';
-import "react-datetime/css/react-datetime.css";
 
-
-ReactDOM.render(
+export const Wrapper = () => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <App />
     </PersistGate>
-  </Provider>,
+  </Provider>
+)
+ReactDOM.render(
+  <Wrapper />,
   document.getElementById('root')
 );
 

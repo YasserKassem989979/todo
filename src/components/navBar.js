@@ -6,12 +6,12 @@ import {
 const NavBar = () => {
     const location = useLocation();
     return (
-        <ul className="nav nav-pills justify-content-center my-3">
-            <li className={`nav-item`}>
-                <Link to="/" className={`nav-link ${location.pathname === "/" ? " active " : ""}`}>Home</Link>
+        <ul className="nav  justify-content-center mb-5 mt-3">
+            <li className="nav-item mx-2">
+                <Link to="/" className={`nav-link ${location.pathname === "/" ? " active-nav " : ""}`}>Home</Link>
             </li>
-            <li className="nav-item">
-                <Link to="/calendar" className={`nav-link ${location.pathname === "/calendar" ? " active " : ""}`}>Calendar</Link>
+            <li className="nav-item mx-2">
+                <Link to="/calendar" className={`nav-link ${location.pathname === "/calendar" ? " active-nav " : ""}`}>Calendar</Link>
             </li>
         </ul>
     )

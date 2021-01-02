@@ -14,3 +14,8 @@ code {
   opacity: 0;
   transition: all 0.25s linear;
 }
+
+.active-nav{
+  border: 1px solid #0d6efd;
+  border-radius: 0.25rem;
+}

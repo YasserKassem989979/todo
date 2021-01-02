@@ -25,7 +25,7 @@ const Home = () => {
                             placeholder="search" />
                     </div>
                 </div>
-                <div className="col-sm-12 d-flex w-75 my-3">
+                <div style={{minWidth:300}} className="col-sm-12 d-flex w-75 my-3">
                     <div className="d-flex w-100 justify-content-between">
                         <p className="h5 text-primary">Tasks:</p>
                         <button onClick={() => setShowAddModal(true)} className="btn btn-outline-primary"><i className="fas fa-plus"></i></button>
