@@ -1,22 +1,23 @@
 import { useState } from 'react'
 import Datetime from 'react-datetime';
 import Modal from 'react-modal';
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 const AddTodoModal = ({ setShowAddModal }) => {
     const dispatch = useDispatch();
     const [description, setDescription] = useState("");
-    const [dateTime, setDateTime] = useState();
+    const [dateTime, setDateTime] = useState(null);
 
 
 
-    const addTask = ()=>{
+    const addTask = () => {
+        console.log(dateTime)
         const task = {
             description,
-            date:dateTime.format("YYYY-MM-DD HH:mm"),
-            id:Math.random(),
-            isCompleted:false
+            date: dateTime.format("YYYY-MM-DD HH:mm"),
+            id: Math.random(),
+            isCompleted: false
         }
-        dispatch({type:"ADD",task});
+        dispatch({ type: "ADD", task });
         setShowAddModal(false);
     }
 
@@ -67,8 +68,8 @@ const customStyles = {
         right: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        overflow:"hidden",
-        minHeight:"57%"
+        overflow: "hidden",
+        minHeight: "57%"
     }
 };
 
